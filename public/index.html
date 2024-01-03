@@ -1,0 +1,274 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Management</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/easyResponsiveTabs.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <!-- <script src="js/jquery.min.js"></script> -->
+    <!-- <script src="js/script.js"></script> -->
+
+    <script src="js/Flights.js"></script>
+    <script src="js/Passenger.js"></script>
+    <script src="js/Reservations.js"></script>
+</head>
+<body>
+    <h1>Flight Management System</h1>
+    <div class="main-agileinfo">
+		<div class="sap_tabs">			
+			<div id="horizontalTab">
+				<ul class="resp-tabs-list">
+					<li class="resp-tab-item"><span>Flights</span></li>
+					<li class="resp-tab-item"><span>Passenger</span></li>
+					<li class="resp-tab-item"><span>Reservations</span></li>				
+				</ul>	
+				<div class="clearfix"> </div>	
+				<div class="resp-tabs-container">
+					<div class="tab-1 resp-tab-content roundtrip">
+    <form>
+        <div class="from">
+            <h3>From</h3>
+            <input type="text" name="ville_depart" id="ville_depart"  placeholder="Type Departure City" required="">
+        </div>
+        <div class="to">
+            <h3>To</h3>
+            <input type="text" name="ville_destination" id="ville_destination"  placeholder="Type Destination City" required="">
+        </div>
+        <div class="clear"></div>
+        <div class="date">
+            <div class="depart">
+                <h3>Depart</h3>
+                <input id="datepicker" class="departinput" name="depart" type="text" placeholder="mm/dd/yyyy" required>
+            </div>
+            
+            <div class="return">
+                <h3>Return</h3>
+                <input id="datepicker1" class="arrival" name="arrival" type="text" placeholder="mm/dd/yyyy" required>
+            </div>
+        </div>
+        <div class="class">
+            <h3>Airoport</h3>
+            <select id="w3_country1">
+                <option value="" disabled selected >Select airoport</option> 
+                <option value="Airoport-Mohammed-6">Airoport-Mohammed-6</option>  
+                <option value="Airoport-Marrakech">Airoport-Marrakech</option>   
+                <option value="Airoport-Rabat">Airoport-Rabat</option>   
+                <option value="Airoport-Dakhla">Airoport-Dakhla</option>   						
+            </select>
+
+        </div>
+        
+        <div class="clear"></div>
+        <div style="display: inline-block">
+            <div style="display: inline-block;margin-top: 10%">
+                <button id="addFlight" class="buttonS">Submit</button>
+                <button id="editCancel" class="buttonS cancelBtn">Cancel</button>
+            </div>
+        </div>
+
+        <ul id="flightsList">
+        </ul>
+    </form>		
+    </div>
+
+    
+    <div class="tab-1 resp-tab-content oneway">
+        <form>
+            <div class="from">
+                <h3>Name</h3>
+                <input
+                    id="name"
+                    type="text"
+                    name="name"
+                    id="name"
+                    class=""
+                    placeholder="Nom"
+                    required=""
+                />
+            </div>
+            <div class="to">
+                <h3>Prenom</h3>
+                <input
+                  type="text"
+                  name="prenom"
+                  id="prenom"
+                  class=""
+                  placeholder="Prenom"
+                  required=""
+                />
+            </div>
+            <div class="clear"></div>
+            <div class="from">
+                <h3>Email</h3>
+                <input
+                    type="text"
+                    name="email"
+                    id="email"
+                    class=""
+                    placeholder="email"
+                    required=""
+                />
+            </div>
+            <div class="to">
+                <h3>Address</h3>
+                <input
+                    type="text"
+                    name="adresse"
+                    id="adresse"
+                    class=""
+                    placeholder="address"
+                    required=""
+                />
+            </div>
+            <div class="clear"></div>
+            <div class="class">
+                <h3>Date de naissance</h3>
+                <input
+                    id="datepicker2"
+                    class="date date_naissanceP"
+                    name="date"
+                    type="text"
+                    placeholder="mm/dd/yyyy"
+                    required
+                />
+            </div>
+            
+            <div class="clear"></div>
+            <div style="display: inline-block">
+                <div style="display: inline-block;margin-top: 10%">
+                    <button id="addPassenger" class="buttonS">Submit</button>
+                    <button id="editCancelPassenger" class="buttonS cancelBtn">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+    
+            <ul id="passengersList">
+            </ul>
+        </form>
+    </div>
+
+    <div class="tab-1 resp-tab-content multicity">
+        <form id="reservationsForm">
+            <div class="from">
+                <h3>Passenger</h3>
+                <select id="passengerSelect" required >  						
+                </select>
+            </div>
+
+            <div class="to">
+                <h3>Flights</h3>
+                <select id="flightSelect" required>  						
+                </select>
+            </div>
+            <div class="clear"></div>
+            <div class="from">
+                <h3>Date</h3>
+                <input
+                    class="date reservationDate"
+                    id="datepicker3"
+                    name="date"
+                    type="text"
+                    placeholder="mm/dd/yyyy"
+                    required
+                />
+            </div>
+            <div class="to">
+                <h3>Price</h3>
+                <input type="text" id="price" name="price" placeholder="Price" required />
+            </div>
+            
+            <div class="clear"></div>
+            <div class="from">
+                <h3>SeatNumber</h3>
+                <input
+                    style="padding: 10px;"
+                    id="seatNumber"
+                    name="seatNumber"
+                    type="number"
+                    placeholder="seatNumber"
+                    required
+                />
+            </div>
+            <div class="to">
+                <h3>Siege</h3>
+                <input style="padding: 10px;" type="number" id="siege" name="siege" placeholder="siege" required />
+            </div>
+            
+            <div class="clear"></div>
+            <div style="display: inline-block">
+                <div style="display: inline-block;margin-top: 10%">
+                    <button id="addReservation" class="buttonS">Submit</button>
+                    <button id="editCancelReservation" class="buttonS cancelBtn">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+    
+            <ul id="reservationsList">
+            </ul>
+        </form>
+    </div>
+	<div class="footer-w3l">
+		<p class="agileinfo"> &copy;  Flight Ticket Booking . All Rights Reserved </p>
+	</div>
+
+<!--script for portfolio-->
+<script src="js/jquery.min.js"> </script>
+<script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#horizontalTab').easyResponsiveTabs({
+            type: 'default', //Types: default, vertical, accordion           
+            width: 'auto', //auto or any width like 600px
+            fit: true   // 100% fit in a container
+        });
+    });		
+</script>
+<!--//script for portfolio-->
+        <!-- Calendar -->
+        <link rel="stylesheet" href="css/jquery-ui.css" />
+        <script src="js/jquery-ui.js"></script>
+          <script>
+                  $(function() {
+                    $( "#datepicker,#datepicker1,#datepicker2,#datepicker3" ).datepicker();
+                  });
+          </script>
+    <!-- //Calendar -->
+    <!--quantity-->
+                            <script>
+                            $('.value-plus').on('click', function(){
+                                var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)+1;
+                                divUpd.text(newVal);
+                            });
+
+                            $('.value-minus').on('click', function(){
+                                var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)-1;
+                                if(newVal>=1) divUpd.text(newVal);
+                            });
+                            </script>
+                        <!--//quantity-->
+                <!--load more-->
+                        <script>
+$(document).ready(function () {
+size_li = $("#myList li").size();
+x=1;
+$('#myList li:lt('+x+')').show();
+$('#loadMore').click(function () {
+    x= (x+1 <= size_li) ? x+1 : size_li;
+    $('#myList li:lt('+x+')').show();
+});
+$('#showLess').click(function () {
+    x=(x-1<0) ? 1 : x-1;
+    $('#myList li').not(':lt('+x+')').hide();
+});
+});
+</script>
+<!-- //load-more -->
+
+</body>
+</html>

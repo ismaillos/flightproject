@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Flight Ticket Booking a Flat Responsive Widget Template :: w3layouts</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+	<link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Flight Ticket Booking  Widget Responsive, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design" />
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<script src="js/jquery.min.js" ></script>
+	<script src="js/Flights.js"></script>
+
+</head>
+<body>
+	<h1>Flight Ticket Booking</h1>
+	<div class="main-agileinfo">
+		<div class="sap_tabs">			
+			<div id="horizontalTab">
+				<ul class="resp-tabs-list">
+					<li class="resp-tab-item"><span>Flights</span></li>
+					<li class="resp-tab-item"><span>Passenger</span></li>
+					<li class="resp-tab-item"><span>Reservations</span></li>				
+				</ul>	
+				<div class="clearfix"> </div>	
+				<div class="resp-tabs-container">
+					<div class="tab-1 resp-tab-content roundtrip">
+						<form action="/flights" method="post">
+							<div class="from">
+								<h3>From</h3>
+								<input type="text" name="ville_depart" class="city1" placeholder="Type Departure City" required="">
+							</div>
+							<div class="to">
+								<h3>To</h3>
+								<input type="text" name="ville_destination" class="city2" placeholder="Type Destination City" required="">
+							</div>
+							<div class="clear"></div>
+							<div class="date">
+								<div class="depart">
+									<h3>Depart</h3>
+									<input  id="datepicker" name="depart" type="text" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
+
+								</div>
+								<div class="return">
+									<h3>Return</h3>
+									<input  id="datepicker1" name="arrival" type="text" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
+
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="class">
+								<h3>Airoport</h3>
+								<select id="w3_country1" name="gare" onchange="change_country(this.value)" class="frm-field required">
+									<option value="null">Airoport-Mohammed-6</option>  
+									<option value="null">Airoport-Marrakech</option>   
+									<option value="null">Airoport-Rabat<option>   
+									<option value="null">Airoport-Dakhla</option>   						
+								</select>
+
+							</div>
+
+							<div class="clear"></div>
+							<input type="submit" value="Search Flights">
+							<div style="display: inline-block;margin-top: 10%">
+								<div style="display: inline-block;margin-top: 10%"><button id="addFlight" value ="addFlights" type ="submit">Add Flights</button></div> 
+								<div style="display: inline-block"><button id="Edit" type="submit">Edit Flights</button></div>
+								<div style="display: inline-block"><button id="LoadFlight" type="submit">Liste Flights</button></div>
+								<div style="display: inline-block"><button id="Remove" type="submit">Remove Flights</button></div>
+							</div>
+						</form>	
+
+						<div>
+							<ul id="flightsList">
+								<li></li>
+							</ul>
+						</div>					
+					</div>	
+</body>
+</html>
